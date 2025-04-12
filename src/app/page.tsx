@@ -188,7 +188,7 @@ export default function AvaliacaoPage() {
         {/* Menu de seleção de pontuação */}
         {selectedArea && (
           <div className="bg-white p-3 md:p-4 rounded-lg shadow-lg mb-4 md:mb-6 w-full max-w-md">
-          <h3 className="font-bold mb-2 text-sm md:text-base text-black">
+          <h3 className="font-bold mb-2 text-sm md:text-base text-black dark:text-black">
             Selecione um valor para {areas.find((a) => a.id === selectedArea)?.name}:
           </h3>        
             <div className="flex justify-center space-x-3 md:space-x-4">
@@ -213,13 +213,13 @@ export default function AvaliacaoPage() {
         {/* Exibição da pontuação total */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg md:text-xl font-bold text-black">
+              <h2 className="text-lg md:text-xl font-bold text-black dark:text-black">
                 Pontuação total:&nbsp;
               </h2>
-            <span className="text-xl md:text-2xl font-bold text-black">{total}</span>
+            <span className="text-xl md:text-2xl font-bold text-black dark:text-black">{total}</span>
           </div>
 
-          <Button className="w-full bg-yellow-600 cursor-pointer hover:bg-yellow-700" onClick={handleSave}>
+          <Button className="w-full bg-yellow-600 cursor-pointer hover:bg-yellow-700 dark:text-black" onClick={handleSave}>
             Salvar Avaliação
           </Button>
         </div>
