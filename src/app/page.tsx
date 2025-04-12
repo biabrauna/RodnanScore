@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { useToast } from "@/hooks/use-toast"
 import { useMobile } from "@/hooks/use-mobile"
 import Image from "next/image"
+import { toast, Toaster } from "sonner"
 
 type Area = {
   id: string
@@ -42,7 +42,6 @@ const scoreOptions = [
 ]
 
 export default function AvaliacaoPage() {
-  const { toast } = useToast()
   const [areas, setAreas] = useState<Area[]>(clickableAreas)
   const [total, setTotal] = useState(0)
   const [selectedArea, setSelectedArea] = useState<string | null>(null)
@@ -110,11 +109,11 @@ export default function AvaliacaoPage() {
     setSelectedArea(null)
   }
 
-  const handleSave = () => {
-    toast({
-      title: "Avaliação salva",
-      description: `Pontuação total: ${total}`,
-    })
+  const handleReset = () => {
+    setAreas(areas.map(area => ({ ...area, value: 0 })))
+    setTotal(0)
+    setSelectedArea(null)
+    toast.info("Todos os valores foram reiniciados")
   }
 
   const getPointSize = () => {
@@ -135,7 +134,7 @@ export default function AvaliacaoPage() {
   }
 
   return (
-    <div className="container mx-auto mt-4 px-2 md:px-4 flex flex-col sm:flex-row justify-center items-center">
+    <div className="container mx-auto mt-4 px-2 md:px-4 flex flex-col sm:flex-row justify-center items-center sm:items-end">
       <div>
         <h1 className="text-2xl md:text-3xl font-bold text-center">Calculadora Score de Rodnan</h1>
         <div className="flex flex-col items-left">
@@ -218,9 +217,9 @@ export default function AvaliacaoPage() {
               </h2>
             <span className="text-xl md:text-2xl font-bold text-black dark:text-black">{total}</span>
           </div>
-
-          <Button className="w-full bg-yellow-600 cursor-pointer hover:bg-yellow-700 dark:text-black" onClick={handleSave}>
-            Salvar Avaliação
+          <Toaster position="bottom-center" richColors/>
+          <Button className="w-full bg-yellow-600 cursor-pointer hover:bg-yellow-700 dark:text-black" onClick={handleReset}>
+            Zerar Avaliação
           </Button>
         </div>
       <p className="text-md text-center mt-5 md:text-sm text-black dark:text-black">Idealizado por José Vicente e<br></br>desenvolvido por Bia Braúna</p>
