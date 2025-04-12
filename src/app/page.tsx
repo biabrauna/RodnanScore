@@ -223,6 +223,7 @@ export default function AvaliacaoPage() {
             Salvar Avaliação
           </Button>
         </div>
+      <p className="text-md text-center mt-5 md:text-sm text-black dark:text-black">Idealizado por José Vicente</p>
       </div>
     </div>
   )
