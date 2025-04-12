@@ -214,7 +214,7 @@ export default function AvaliacaoPage() {
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg md:text-xl font-bold text-black">
-                Pontuação total:
+                Pontuação total:&nbsp;
               </h2>
             <span className="text-xl md:text-2xl font-bold text-black">{total}</span>
           </div>
