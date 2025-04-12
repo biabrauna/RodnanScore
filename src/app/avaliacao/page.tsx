@@ -142,7 +142,7 @@ export default function AvaliacaoPage() {
           <span className="text-sm font-bold text-center text-red-500">
             Clique no corpo humano para realizar a avaliação
           </span>
-          <span className="text-2xl animate-bounce ml-35 text-red-500">↓</span>
+          <span className="text-2xl animate-bounce ml-28 sm:ml-36 text-red-500">↓</span>
         </div>
       
         <div className="relative w-full max-w-md" ref={containerRef}>
