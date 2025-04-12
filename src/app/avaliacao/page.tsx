@@ -98,8 +98,8 @@ export default function AvaliacaoPage() {
       }
     })
 
-    if (closestArea) {
-      setSelectedArea(closestArea.id)
+    if (closestArea !== null) {
+      setSelectedArea((closestArea as Area).id)
     }
   }
 
