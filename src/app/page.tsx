@@ -118,8 +118,8 @@ export default function AvaliacaoPage() {
   }
 
   const getPointSize = () => {
-    if (isMobile) return "w-4 h-4 -ml-3 -mt-3 text-xs"
-    return "w-4 h-4 -ml-4 -mt-4 text-sm"
+    if (isMobile) return "w-4 h-4 -ml-3 -mt-3 text-xs text-black"
+    return "w-4 h-4 -ml-4 -mt-4 text-sm text-black"
   }
 
   const getCircleStyle = (value: number) => {
@@ -145,7 +145,7 @@ export default function AvaliacaoPage() {
           <span className="text-2xl animate-bounce ml-28 sm:ml-36 text-red-500">↓</span>
         </div>
       
-        <div className="relative w-full max-w-md" ref={containerRef}>
+        <div className="relative w-full max-w-md rounded-lg overflow-hidden bg-white shadow-md" ref={containerRef}>
           <div className="w-full aspect-[1] relative" onClick={handleImageClick}>
             <Image
               src="https://nwywfckpkezcstti.public.blob.vercel-storage.com/Bras%20G%20%282%29%20%281%29-u3Dh0ufo7VaOtWVCC6RdK8syrjYDIZ.png"
@@ -188,9 +188,9 @@ export default function AvaliacaoPage() {
         {/* Menu de seleção de pontuação */}
         {selectedArea && (
           <div className="bg-white p-3 md:p-4 rounded-lg shadow-lg mb-4 md:mb-6 w-full max-w-md">
-            <h3 className="font-bold mb-2 text-sm md:text-base">
-              Selecione um valor para {areas.find((a) => a.id === selectedArea)?.name}:
-            </h3>
+          <h3 className="font-bold mb-2 text-sm md:text-base text-black">
+            Selecione um valor para {areas.find((a) => a.id === selectedArea)?.name}:
+          </h3>        
             <div className="flex justify-center space-x-3 md:space-x-4">
               {scoreOptions.map((option) => (
                 <button
@@ -200,7 +200,7 @@ export default function AvaliacaoPage() {
                   style={{ 
                     backgroundColor: option.color === "white" ? "white" : option.color,
                     borderColor: option.color === "white" ? "gray" : option.color,
-                    color: option.color === "white" || option.color === "yellow" ? "black" : "white"
+                    color: option.color === "black" || option.color === "yellow" ? "black" : "black"
                   }}
                 >
                   {option.score}
@@ -212,9 +212,11 @@ export default function AvaliacaoPage() {
 
         {/* Exibição da pontuação total */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg w-full max-w-md">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg md:text-xl font-bold">Pontuação Total:&nbsp; </h2>
-            <span className="text-xl md:text-2xl font-bold">{total}</span>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg md:text-xl font-bold text-black">
+                Pontuação total:
+              </h2>
+            <span className="text-xl md:text-2xl font-bold text-black">{total}</span>
           </div>
 
           <Button className="w-full bg-yellow-600 cursor-pointer hover:bg-yellow-700" onClick={handleSave}>
