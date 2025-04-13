@@ -15,30 +15,30 @@ type Area = {
 }
 
 const clickableAreas = [
-  { id: "visage", name: "Visage", xPercent: 28.9, yPercent: 16.8, value: 0 },
-  { id: "thorax", name: "Thorax", xPercent: 38.4, yPercent: 27.8, value: 0 },
-  { id: "abdomen", name: "Abdomen", xPercent: 38.4, yPercent: 44.7, value: 0 },
-  { id: "brasG", name: "Bras G", xPercent: 22.1, yPercent: 26.0, value: 0 },
-  { id: "avBrasG", name: "Av.Bras G", xPercent: 19.9, yPercent: 40.7, value: 0 },
-  { id: "mainG", name: "Main G", xPercent: 18.8, yPercent: 48.0, value: 0 },
-  { id: "doigtsG", name: "Doigts G", xPercent: 20.0, yPercent: 53.7, value: 0 },
-  { id: "brasD", name: "Bras D", xPercent: 52.7, yPercent: 26.0, value: 0 },
-  { id: "avBrasD", name: "Av.Bras D", xPercent: 54.0, yPercent: 40.7, value: 0 },
-  { id: "mainD", name: "Main D", xPercent: 56.0, yPercent: 48.0, value: 0 },
-  { id: "doigtsD", name: "Doigts D", xPercent: 56.0, yPercent: 53.7, value: 0 },
-  { id: "cuisseG", name: "Cuisse G", xPercent: 31.6, yPercent: 57.7, value: 0 },
-  { id: "jambeG", name: "Jambe G", xPercent: 27.1, yPercent: 70.0, value: 0 },
-  { id: "piedG", name: "Pied G", xPercent: 28.1, yPercent: 78.7, value: 0 },
-  { id: "cuisseD", name: "Cuisse D", xPercent: 44.0, yPercent: 57.7, value: 0 },
-  { id: "jambeD", name: "Jambe D", xPercent: 49.0, yPercent: 70.0, value: 0 },
-  { id: "piedD", name: "Pied D", xPercent: 48.0, yPercent: 78.7, value: 0 },
+  { id: "visage", name: "Face", xPercent: 30.4, yPercent: 17.8, value: 0 },
+  { id: "thorax", name: "Tórax", xPercent: 39.4, yPercent: 28.8, value: 0 },
+  { id: "abdomen", name: "Abdome", xPercent: 39.8, yPercent: 45.7, value: 0 },
+  { id: "brasG", name: "Braço E", xPercent: 22.8, yPercent: 27.0, value: 0 },
+  { id: "avBrasG", name: "Antebraço E", xPercent: 21.5, yPercent: 41.7, value: 0 },
+  { id: "mainG", name: "Mão E", xPercent: 20.4, yPercent: 49.0, value: 0 },
+  { id: "doigtsG", name: "Dedos E", xPercent: 21.2, yPercent: 54.7, value: 0 },
+  { id: "brasD", name: "Braço D", xPercent: 54.7, yPercent: 27.0, value: 0 },
+  { id: "avBrasD", name: "Antebraço D", xPercent: 56.0, yPercent: 41.7, value: 0 },
+  { id: "mainD", name: "Mão D", xPercent: 57.0, yPercent: 49.0, value: 0 },
+  { id: "doigtsD", name: "Dedos D", xPercent: 57.0, yPercent: 54.7, value: 0 },
+  { id: "cuisseG", name: "Coxa E", xPercent: 32.6, yPercent: 58.7, value: 0 },
+  { id: "jambeG", name: "Perna E", xPercent: 28.8, yPercent: 71.0, value: 0 },
+  { id: "piedG", name: "Pé E", xPercent: 29.8, yPercent: 79.7, value: 0 },
+  { id: "cuisseD", name: "Coxa D", xPercent: 44.8, yPercent: 58.7, value: 0 },
+  { id: "jambeD", name: "Perna D", xPercent: 50.4, yPercent: 71.0, value: 0 },
+  { id: "piedD", name: "Pé D", xPercent: 48.8, yPercent: 79.7, value: 0 },
 ]
 
 const scoreOptions = [
-  { score: 1, label: "Sem Esclerose", color: "white" },
-  { score: 2, label: "Esclerose superficial", color: "green" },
-  { score: 3, label: "Esclerose intermediária", color: "yellow" },
-  { score: 4, label: "Esclerose aderente ao tecido profundo", color: "red" }
+  { score: 0, label: "Sem Esclerose", color: "white" },
+  { score: 1, label: "Esclerose superficial", color: "green" },
+  { score: 2, label: "Esclerose intermediária", color: "yellow" },
+  { score: 3, label: "Esclerose aderente ao tecido profundo", color: "red" }
 ]
 
 export default function AvaliacaoPage() {
@@ -122,13 +122,13 @@ export default function AvaliacaoPage() {
   }
 
   const getCircleStyle = (value: number) => {
-    if (value === 0) return "bg-red-400 bg-opacity-50 border-red-600"
+    if (value === 0) return "bg-white border-gray-500"
     
     switch (value) {
-      case 1: return "bg-white border-gray-400"
-      case 2: return "bg-green-500 border-green-600"
-      case 3: return "bg-yellow-500 border-yellow-600"
-      case 4: return "bg-red-600 border-red-700"
+      case 0: return "bg-white border-gray-500"
+      case 1: return "bg-green-500 border-green-600"
+      case 2: return "bg-yellow-500 border-yellow-600"
+      case 3: return "bg-red-600 border-red-700"
       default: return "bg-red-400 bg-opacity-50 border-red-600"
     }
   }
@@ -147,7 +147,7 @@ export default function AvaliacaoPage() {
         <div className="relative w-full max-w-md rounded-lg overflow-hidden bg-white shadow-md" ref={containerRef}>
           <div className="w-full aspect-[1] relative" onClick={handleImageClick}>
             <Image
-              src="https://nwywfckpkezcstti.public.blob.vercel-storage.com/Bras%20G%20%282%29%20%281%29-u3Dh0ufo7VaOtWVCC6RdK8syrjYDIZ.png"
+              src="https://nwywfckpkezcstti.public.blob.vercel-storage.com/Bras%20G%20%283%29%20%281%29-3VhoG9R7PPJTcfNn1aE38moYcfcWjW.png"
               alt="Score de Rodnan"
               layout="fill"
               className="object-contain"
